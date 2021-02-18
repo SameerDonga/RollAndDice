@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>987411789656-vgq4ej5m8opcqcu1r0cbqf04bmkaenvf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.987411789656-vgq4ej5m8opcqcu1r0cbqf04bmkaenvf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDBZHfZCeLwKzgcegGqVRI5aZiY_-PIyAQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>987411789656</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.city.shop</string>
+	<key>PROJECT_ID</key>
+	<string>city-shop-284605</string>
+	<key>STORAGE_BUCKET</key>
+	<string>city-shop-284605.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:987411789656:ios:d19ad118920a9beb3f972d</string>
+	<key>DATABASE_URL</key>
+	<string>https://city-shop-284605.firebaseio.com</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera permission is required for qrcode scanning.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Get your current location for get User current Location</string>
+	<key>NSLocationDefaultAccuracyReduced</key>
+	<string>Get your current location for get User current Location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Get your current location for get User current Location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Get your current location for get User current Location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Get your current location for get User current Location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-2555513102710230~4666629473</string>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
+</dict>
+</plist>
