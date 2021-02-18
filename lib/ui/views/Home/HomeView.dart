@@ -91,101 +91,62 @@ class _HomeViewState extends State<HomeView>
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
                           onTap: () => _scaffoldKey.currentState.openDrawer(),
                           child: Icon(Icons.menu),
                         ),
-                        Container(
-                          width: SizeConfig.relativeHeight(10),
-                          // height: SizeConfig.relativeHeight(5),
-                          padding: EdgeInsets.all(
-                            SizeConfig.relativeSize(3),
-                          ),
-                          decoration: BoxDecoration(
-                            color: AppColors.greenColor,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          alignment: Alignment.center,
-                          child: RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "Score ",
-                                  style: TextStyle(
-                                    color: AppColors.backgroundColor,
-                                    fontSize: SizeConfig.setSp(14),
-                                    letterSpacing: 1,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: snapshot.data != null
-                                      ? model.user.score.toString()
-                                      : "0",
-                                  style: TextStyle(
-                                    color: AppColors.backgroundColor,
-                                    fontSize: SizeConfig.setSp(16),
-                                    letterSpacing: 1,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        Spacer(),
+                        model.user == null
+                            ? Container()
+                            : scoreCard(Colors.blue,
+                                "Attempt\n${10 - model.user.attemptRemain}/10"),
+                        SizeConfig.horizontalSpacer(5),
+                        model.user == null
+                            ? Container()
+                            : scoreCard(
+                                Colors.green, "Score\n${model.user.score}"),
                       ],
                     ),
                     SizeConfig.verticalSpacer(15),
-                    isDiceRolling
-                        ? Image.asset(Assets.imagesDiceRolling)
-                        : Container(
-                            width: SizeConfig.relativeHeight(24.63),
-                            height: SizeConfig.relativeHeight(24.63),
-                            decoration: BoxDecoration(
-                              color: Color(0xffd0021b),
-                              borderRadius: BorderRadius.circular(23),
-                            ),
-                            child: Image.asset(model.images[imagePosition]),
-                            alignment: Alignment.center,
-                          ),
+                    Expanded(
+                      child: Center(
+                        child: isDiceRolling
+                            ? Image.asset(Assets.imagesDiceRolling)
+                            : Container(
+                                width: SizeConfig.relativeHeight(24.63),
+                                height: SizeConfig.relativeHeight(24.63),
+                                decoration: BoxDecoration(
+                                  color: Color(0xffd0021b),
+                                  borderRadius: BorderRadius.circular(23),
+                                ),
+                                child: Image.asset(model.images[imagePosition]),
+                                alignment: Alignment.center,
+                              ),
+                      ),
+                    ),
                     SizeConfig.verticalSpacer(3),
-                    model.user.attemptRemain != 0
-                        ? Container(
-                            width: SizeConfig.relativeHeight(24.63),
-                            alignment: Alignment.center,
-                            height: SizeConfig.relativeHeight(24.63),
-                            child:
-                                Text("Attempts Left : ${model.user.attemptRemain}"))
-                        : Container(
-                            width: SizeConfig.relativeHeight(30),
-                            height: SizeConfig.relativeHeight(30),
-                            alignment: Alignment.center,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("No Attempts Left"),
-                                SizeConfig.verticalSpacer(4),
-                              ],
-                            ),
-                          ),
-                    Spacer(),
                     CircularButton(
                       width: SizeConfig.relativeWidth(53.33),
                       height: SizeConfig.relativeHeight(5.66),
                       title: "Play",
-                      isDisable: model.user.attemptRemain==10||isDiceRolling?true:false,
+                      isDisable: model.user.attemptRemain == 0 || isDiceRolling
+                          ? true
+                          : false,
                       callback: () {
                         setState(() {
                           isDiceRolling = true;
                         });
-                        Future.delayed(const Duration(milliseconds: 2000), () {
+                        Future.delayed(const Duration(milliseconds: 1200), () {
                           playDice(model);
                         });
                       },
                       // callback: () => playDice(model),
                     ),
+
+
                     SizeConfig.verticalSpacer(3),
                   ],
                 ),
@@ -200,18 +161,41 @@ class _HomeViewState extends State<HomeView>
     int min = 1, max = 7;
     int generatedNumber = min + rnd.nextInt(max - min);
     this.imagePosition = generatedNumber - 1;
-    model.user.score = model.user.score+generatedNumber;
-    model.user.attemptRemain = model.user.attemptRemain-1;
-
+    model.user.score = model.user.score + generatedNumber;
+    model.user.attemptRemain = model.user.attemptRemain - 1;
+    setState(() {
+      isDiceRolling = false;
+    });
     FirebaseService.updateUser(model.user.toMap()).then((value) {
-      if(model.user.attemptRemain==0)
-        {
-          FirebaseService.setLeaderBoard(model.user.toMap());
-        }
-      setState(() {
-        isDiceRolling = false;
-      });
+      if (model.user.attemptRemain == 0) {
+        FirebaseService.setLeaderBoard(model.user.toMap());
+      }
 
     });
+  }
+
+  scoreCard(Color bgColor, String data) {
+    return Container(
+      padding: EdgeInsets.only(
+        left: SizeConfig.relativeWidth(5),
+        right: SizeConfig.relativeWidth(5),
+        top: SizeConfig.relativeHeight(1),
+        bottom: SizeConfig.relativeHeight(1),
+      ),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        data,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: AppColors.backgroundColor,
+          fontSize: SizeConfig.setSp(14),
+          letterSpacing: 1,
+        ),
+      ),
+    );
   }
 }

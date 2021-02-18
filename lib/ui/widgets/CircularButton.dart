@@ -2,7 +2,6 @@ import 'package:rollanddice/ui/shared/app_theme.dart';
 import 'package:rollanddice/ui/shared/size_config.dart';
 import 'package:rollanddice/ui/shared/app_colors.dart';
 import 'package:flutter/material.dart';
-
 import '../shared/app_colors.dart';
 
 class CircularButton extends StatelessWidget {

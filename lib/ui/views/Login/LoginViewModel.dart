@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:rollanddice/ui/views/base_model.dart';
 import 'package:rollanddice/utils.dart';
 import 'package:rollanddice/services/Firebase.dart';
-import 'package:rollanddice/constants/languageContstants.dart';
 import 'package:rollanddice/constants/route_names.dart';
 import 'package:rollanddice/ui/shared/shared_preference.dart';
 class LoginViewModel extends BaseModel{
@@ -27,7 +26,7 @@ class LoginViewModel extends BaseModel{
           setState(ViewState.Idle);
         });
       } else {
-        showMessageInFlushBar(translate(no_internet_connection), true);
+        showMessageInFlushBar('No Internet Connection', true);
         setState(ViewState.Idle);
       }
     });

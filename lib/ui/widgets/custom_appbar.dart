@@ -1,8 +1,6 @@
-import 'package:rollanddice/ui/shared/app_theme.dart';
 import 'package:rollanddice/ui/shared/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:rollanddice/ui/shared/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -26,22 +24,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final dynamic fontStyle;
   final dynamic letterSpacing;
 
-  final TextStyle _textStyle = TextStyle(
-    fontFamily: AppTheme.ffRegular,
-    color: AppColors.text3Color,
-    fontSize: SizeConfig.setSp(20),
-    fontWeight: FontWeight.w400,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-  );
-  final TextStyle _miniTextStyle = TextStyle(
-    fontFamily: AppTheme.ffRegular,
-    color: AppColors.text3Color,
-    fontSize: SizeConfig.setSp(12),
-    fontWeight: FontWeight.w400,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-  );
 
   CustomAppBar(
       {Key key,
@@ -106,19 +88,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         )
-//        IconButton(
-//                icon: Image.asset(rightIcon,fit: BoxFit.contain,),
-//                onPressed: rightIconCallback,
-//              ),
       ],
     );
-    /*Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        AppDivider(),
-      ],
-    );*/
+
   }
 }
 

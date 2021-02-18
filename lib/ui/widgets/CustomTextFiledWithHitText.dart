@@ -1,9 +1,7 @@
 import 'package:rollanddice/ui/shared/app_colors.dart';
-import 'package:rollanddice/ui/shared/app_theme.dart';
 import 'package:rollanddice/ui/shared/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rollanddice/ui/shared/app_colors.dart';
 
 class CustomTextFiledWithHitText extends StatelessWidget {
   final String hint;

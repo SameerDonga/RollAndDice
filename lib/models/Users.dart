@@ -31,6 +31,8 @@ class User {
   User({this.email, this.fullName, this.score, this.attemptRemain});
 
   User.fromMap(Map<String, dynamic> json) {
+
+    print('data ==> $json');
     email = json['email'];
     fullName = json['fullName'];
     score = json['score'];

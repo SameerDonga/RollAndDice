@@ -104,7 +104,7 @@ class _LoginViewState extends State<LoginView> with BaseCommonWidget {
         return;
       }
       if (passwordController.text.isEmpty ||
-          passwordController.text.length >= 6) {
+          passwordController.text.length < 6) {
         model.showMessageInFlushBar("Min password length is 6", true);
         return;
       }

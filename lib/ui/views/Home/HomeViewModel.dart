@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:rollanddice/ui/shared/app_theme.dart';
 import 'package:rollanddice/ui/views/base_model.dart';

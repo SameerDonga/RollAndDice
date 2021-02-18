@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserPreference {
@@ -23,7 +21,7 @@ class UserPreference {
   }
 
   ///set Email
-  static Future<String> setUserEmail(String userEmail) async {
+  static Future<void> setUserEmail(String userEmail) async {
     pref = await getPrefObject();
     pref.setString(email, userEmail);
   }
@@ -34,7 +32,7 @@ class UserPreference {
   }
 
   ///set Email
-  static Future<int> setUserAttampts(int userEmail) async {
+  static Future<void> setUserAttampts(int userEmail) async {
     pref = await getPrefObject();
     pref.setInt(attempts, userEmail);
   }
@@ -44,7 +42,7 @@ class UserPreference {
     return pref.getInt(attempts);
   }
   ///set fullName
-  static Future<String> setUserFullName(String userFullName) async {
+  static Future<void> setUserFullName(String userFullName) async {
     pref = await getPrefObject();
     pref.setString(fullName, userFullName);
   }

@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:provider_architecture/viewmodel_provider.dart';
 import 'package:rollanddice/ui/shared/app_theme.dart';
 import 'package:rollanddice/ui/shared/size_config.dart';
-import 'package:provider/provider.dart';
-import 'package:rollanddice/models/GlobalProvider.dart';
 import 'package:rollanddice/services/Firebase.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -103,7 +101,7 @@ class _CustomDrawerState extends State<CustomDrawer> with BaseCommonWidget {
                     ),
                     children: <Widget>[
                       CustomDrawerMenuItem(
-                        title: model.translate("Leaderboard"),
+                        title: 'Leaderboard',
                         icon: Icons.leaderboard,
                         height: menuItemHeight,
                         onTap: () {
@@ -112,7 +110,7 @@ class _CustomDrawerState extends State<CustomDrawer> with BaseCommonWidget {
                         },
                       ),
                       CustomDrawerMenuItem(
-                        title: model.translate("logout"),
+                        title: 'Logout',
                         icon: Icons.logout,
                         height: menuItemHeight,
                         onTap: () => _logout(model),

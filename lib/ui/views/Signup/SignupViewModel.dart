@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rollanddice/constants/languageContstants.dart';
 import 'package:rollanddice/constants/route_names.dart';
 import 'package:rollanddice/models/Users.dart';
 import 'package:rollanddice/utils.dart';
@@ -31,7 +30,7 @@ class SignUpViewModel extends BaseModel {
           setState(ViewState.Idle);
         });
       } else {
-        showMessageInFlushBar(translate(no_internet_connection), true);
+        showMessageInFlushBar('No Internet connection', true);
         setState(ViewState.Idle);
       }
     });

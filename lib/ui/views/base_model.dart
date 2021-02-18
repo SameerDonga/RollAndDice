@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:rollanddice/locator.dart';
 import 'package:rollanddice/ui/shared/app_colors.dart';
-import 'package:rollanddice/models/localization_language_model.dart';
 import 'package:rollanddice/services/dialog_service.dart';
-import 'package:rollanddice/services/localization_service.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -14,13 +12,9 @@ enum ViewState { Idle, Busy }
 String userChatID;
 
 class BaseModel extends ChangeNotifier {
-  final LocalizationService _localizationService =
-      locator<LocalizationService>();
   final DialogService _dialogService = locator<DialogService>();
 
 //  static const String  userChatID='' ;
-  String ShareURL;
-  Uri finalURL;
   final NavigationService _navigationService = locator<NavigationService>();
   BuildContext context;
   ViewState _state = ViewState.Idle;
@@ -47,8 +41,6 @@ class BaseModel extends ChangeNotifier {
     _navigationService.navigateToAndPop(routeName, arguments: arguments);
   }
 
-
-
   void setState(ViewState viewState) {
     if (_state != viewState) _state = viewState;
     notifyListeners();
@@ -57,20 +49,6 @@ class BaseModel extends ChangeNotifier {
   pop() {
     _navigationService.pop();
   }
-
-  String translate(String wordToTranslate) {
-    return _localizationService.getValueById(wordToTranslate);
-  }
-
-  showLanguagePicker() async {
-    _dialogService.showLanguagePicker();
-  }
-
-  LocalizationLanguage get currentLanguage =>
-      _localizationService.currentLanguage;
-
-  List<LocalizationLanguage> get getAllLanguages =>
-      _localizationService.languages;
 
   bool _busy = false;
 
@@ -81,16 +59,9 @@ class BaseModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setLanguage(LocalizationLanguage value) {
-//    _busy = value;
-//    notifyListeners();
-  }
-
   @override
-  Future<void> dispose() async {
-//    await _streamSubscriptionLanguageChange.cancel();
-//    super.dispose();
-  }
+  // ignore: must_call_super
+  Future<void> dispose() async {}
 
   void showMessageInFlushBar(String message, bool isError) {
     try {
@@ -127,7 +98,4 @@ class BaseModel extends ChangeNotifier {
       print(e);
     }
   }
-
-
-
- }
+}

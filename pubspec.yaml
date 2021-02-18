@@ -24,8 +24,6 @@ dependencies:
   provider_architecture: 1.0.3
   intl: 0.16.1
   page_transition: 1.1.7+2
-  flutter_svg: 0.19.0
-  carousel_slider: 2.3.1
   fimber: 0.4.4
   flushbar: 1.10.4
   shared_preferences: 0.5.11

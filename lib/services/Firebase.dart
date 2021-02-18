@@ -22,6 +22,7 @@ class FirebaseService {
   }
 
   static Future<DocumentSnapshot>getUser() {
+    print('current user ==> ${firebaseAuth.currentUser.uid}');
    return firebaseFirestore
         .collection("Users")
         .doc(firebaseAuth.currentUser.uid)

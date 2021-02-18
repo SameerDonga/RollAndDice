@@ -1,7 +1,6 @@
 import 'package:rollanddice/locator.dart';
 import 'package:rollanddice/models/dialog_models.dart';
 import 'package:rollanddice/services/dialog_service.dart';
-import 'package:rollanddice/services/localization_service.dart';
 import 'package:rollanddice/ui/shared/app_theme.dart';
 import 'package:rollanddice/ui/shared/size_config.dart';
 import 'package:rollanddice/ui/widgets/circular_button.dart';
@@ -17,7 +16,6 @@ class DialogManager extends StatefulWidget {
 
 class _DialogManagerState extends State<DialogManager> {
   DialogService _dialogService = locator<DialogService>();
-  LocalizationService _localizationService = locator<LocalizationService>();
   @override
   void initState() {
     super.initState();

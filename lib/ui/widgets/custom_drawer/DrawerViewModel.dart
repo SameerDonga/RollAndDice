@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:rollanddice/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:rollanddice/locator.dart';
 import 'package:rollanddice/models/Users.dart';
 import 'package:rollanddice/services/Firebase.dart';
 
@@ -20,7 +19,6 @@ class DrawerViewModel extends BaseModel {
     FirebaseService.getUser().then((value) {
       users = User.fromMap(value.data());
       notifyListeners();
-      print("user data >>>>>>>>>>> ${value.data()}");
     });
     getAPIVersion();
 

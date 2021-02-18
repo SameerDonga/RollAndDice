@@ -4,8 +4,6 @@ class SizeConfig {
   static MediaQueryData _mediaQueryData;
   static double screenWidth;
   static double screenHeight;
-  static double _blockSizeHorizontal;
-  static double _blockSizeVertical;
 
   static double _safeAreaWidth;
   static double _safeAreaHeight;
@@ -36,18 +34,14 @@ class SizeConfig {
     return (_safeBlockVertical / _safeBlockHorizontal) * multiplier;
   }
 
-
   void init(BuildContext context, BoxConstraints safeAreaBox) {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width;
     screenHeight = _mediaQueryData.size.height;
 
-    _blockSizeHorizontal = screenWidth / 100;
-    _blockSizeVertical = screenHeight / 100;
-
     _safeAreaWidth = safeAreaBox.maxWidth;
     _safeAreaHeight = safeAreaBox.maxHeight;
-    _safeBlockHorizontal = _safeAreaWidth/ 100;
+    _safeBlockHorizontal = _safeAreaWidth / 100;
     _safeBlockVertical = _safeAreaHeight / 100;
 
     _textScaleFactor = _mediaQueryData.textScaleFactor;

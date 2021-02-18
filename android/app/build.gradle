@@ -25,6 +25,14 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+    signingConfigs {
+        Sameer {
+            storeFile file('/Volumes/T7/Projects/RollAndDice/android/roll_and_dice_keystore')
+            storePassword 'Sameer123#'
+            keyAlias 'RollAndDice'
+            keyPassword 'Sameer123#'
+        }
+    }
     compileSdkVersion 29
 
     lintOptions {
@@ -45,7 +53,7 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.Sameer
         }
     }
 }

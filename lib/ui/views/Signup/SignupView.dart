@@ -79,6 +79,7 @@ class _SignUpViewState extends State<SignUpView> with BaseCommonWidget {
             CustomTextFiledWithHitText(
               textEditingController: fullNameController,
               hint: "Full Name",
+              textCapitalization: TextCapitalization.words,
               textInputAction: TextInputAction.next,
               onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
             ),

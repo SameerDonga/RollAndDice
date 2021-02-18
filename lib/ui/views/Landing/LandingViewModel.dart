@@ -5,7 +5,6 @@ import 'package:rollanddice/ui/views/base_model.dart';
 import 'package:flutter/material.dart';
 import 'package:rollanddice/services/dialog_service.dart';
 import 'package:rollanddice/locator.dart';
-import 'package:rollanddice/constants/languageContstants.dart';
 class LandingViewModel extends BaseModel{
   LandingViewModel(BuildContext buildContext){
     context = buildContext;
@@ -13,10 +12,10 @@ class LandingViewModel extends BaseModel{
   final DialogService _dialogService = locator<DialogService>();
   Future<bool> closeAppConfirmation() async {
     var response = await _dialogService.showConfirmationDialog(
-        cancelTitle: translate(no),
-        confirmationTitle: translate(yes),
-        title: translate("app_exit_title"),
-        description: translate("app_exit_subtitle"));
+        cancelTitle: 'No',
+        confirmationTitle: 'Yes',
+        title: 'Logout',
+        description: 'Are you sure you want to logout?');
     return response.confirmed;
   }
   String apiVersion = '';
